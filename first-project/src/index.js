@@ -44,7 +44,7 @@ const comment = {
   text: "Espero que goste de aprender react",
   author:{
     name: "Ricardo",
-    AvatarUrl: "https://placekitten.com/g/64/64",
+    AvatarUrl: "https://i.pinimg.com/236x/ae/6f/0c/ae6f0c06031ec9671943bd8be104955f.jpg",
   }
 }
 
