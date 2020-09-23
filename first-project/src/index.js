@@ -4,11 +4,51 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+function formatDate(date){
+  return date.toLocaleDateString();
+}
+
+function Avatar(props){
+  return (
+    <img className="Avatar" 
+    src={props.user.AvatarUrl} 
+    alt={props.user.name} 
+    />
+  );
+}
+
+function UserInfo(props){
+  return (
+    <div className="UserInfo">
+        <Avatar user={props.user} /> 
+        <div className="UserInfo-name">
+          {props.user.name}
+        </div>
+      </div>
+  );
+}
+
+function Comment(props){
+  return (
+    <div className="Comment">
+      <UserInfo user={props.author} />
+      <div className="Comment-text">{props.text}</div>
+      <div className="Comment-date">{formatDate(props.date)}
+      </div>
+    </div>
+  );
+}
+
+const comment = {
+  date: new Date(),
+  text: "Espero que goste de aprender react",
+  author:{
+    name: "Ricardo",
+    AvatarUrl: "https://placekitten.com/g/64/64",
+  }
+}
+
+ReactDOM.render(<Comment date={comment.date} text={comment.text} author={comment.author} />, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
